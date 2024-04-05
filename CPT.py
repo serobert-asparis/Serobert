@@ -1,5 +1,3 @@
-#AP Computer Science Principles Create Performance Task
-
 import pygame
 import random
 pygame.init()
