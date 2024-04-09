@@ -6,7 +6,7 @@ from colorama import Fore
 #Here I am importing python's operating system and using it to hide pygame's welcome message.
 #I used Darrel Lee's stackoverflow answer to help me do this.
 import os
-os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "make the prompt hidden"
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "exists"
 import pygame
 
 play_hangman=True
