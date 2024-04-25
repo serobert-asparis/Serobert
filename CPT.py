@@ -1,3 +1,6 @@
+#AP Computer Science Principles Create Performance Task
+
+
 #Importing necessary modules.
 #Importing 'random' will let me pick a random item from a list.
 import random
@@ -82,7 +85,7 @@ while play_hangman:
     french_hard = ["avion", "ordinateur", "banane", "chocolat", "musique", "jardin", "citron", "trafic", "yaourt", "heureux"]
 
     #welcome message. I used the Python Package Index to make the text blue.
-    print(Fore.BLUE + "Welcome to Hangman!")
+    print(Fore.BLUE + "Welcome to Hangman! Practice your English or French in a fun way!")
 
     while True:
         #I ask the user for their desired language and difficulty level.
@@ -181,6 +184,10 @@ while play_hangman:
     alreadyguessed = []
     #This is the function for the user guessing a letter.
     def guessed (letter):
+        
+        #The guessed letter is added to the list of letters guessed.
+        alreadyguessed.append(letter)
+        
         #The text being displayed is changed globally, so it is not always blank.
         global text
         #The lives_left variable is changed globaly as well, so it can decreases.
@@ -191,14 +198,12 @@ while play_hangman:
         #I check how many times the guessed letter has been put in the 'alreadyguessed' list.
         was_it_guessed=alreadyguessed.count(letter)
         #If the guessed letter has been put into 'alreadyguessed' more than once, it has been gusssed more than once.
-        if was_it_guessed > 0:
+        if was_it_guessed > 1:
             #I change text to say that the guessed letter has already been guessed.
             text=textfont.render("you have already guessed this letter, try again",True, (0,0,0))
             pygame.mixer.Sound.play(already_sound)
         #If the letter has not been put into 'alreadyguessed' more than once.
         else:
-            #The guessed letter is added to the list of letters guessed.
-            alreadyguessed.append(letter)
             #I count how many times the letter appears in the selectedword (where each letter is an item).
             letters_correct=selectedword.count(letter)
             #If the letter does not appear, the text is set to "Incorrect" and lives_left is decreased by one.
@@ -373,13 +378,18 @@ while play_hangman:
     #Making sure pygame and all its attributes quit when the game loop ends. Used pygame's library for syntax aid.
     pygame.quit()
     
+    #Loop asking user if they want to play again
     while True:
         game_over= input(Fore.YELLOW + "Would you like to play again? (Yes/No): ").lower().strip()
+        #If user wants to play again, this while loop breaks and the whole while-loop reloops
         if 'yes' in game_over:
             print("You got it!")
             break
+        #If the iuser does not want to play again, play_hangman, which is the variable that runs the whole loop, is set as false thus ending the loop
         elif 'no' in game_over:
             print("Ok, I hope to see you again soon!")
             play_hangman=False
+            break
+        #If the user didn't say yes or no, this loops until they do.
         else:
             print(Fore.MAGENTA + "I'm sorry, it looks like you didn't enter a valid option! Please try again.")
