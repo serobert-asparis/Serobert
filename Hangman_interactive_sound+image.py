@@ -1,8 +1,4 @@
-#AP Computer Science Principles Create Performance Task
-
-
 #Importing necessary modules.
-#Importing 'random' will let me pick a random item from a list.
 import random
 #Importing 'Fore' will let me change text output colors. I used the Python Package Index to help me do this.
 from colorama import Fore
