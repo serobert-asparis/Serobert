@@ -1,0 +1,210 @@
+#Sebastien Bear Drawing
+
+#Importing turtle module is necessary to be able to use the module to draw
+import turtle
+
+#I will be using the random module to make the bears appear in random locations with random colors
+import random
+
+#In order to use RGB colors, I must set the colormode to the RGB setting, 255
+turtle.colormode(255)
+
+#The following is my function
+#The code is similar to my spirit animal 2 project, but instead of r g b colors ranodmizing indepemndently, a color is chosen at random from a list of colors 
+#The function changes depending on the x, y, r, g, and b values it is given
+def draw(x,y,c):
+    
+    #This code matches the one from spirit animal 2, except that I changed the rgb color values from three variables (rgb) to just one(c)
+    #Thisis because in S.A.2 I randomized each colorindividually, but now I randomize from a list.
+    rectangle=turtle.Turtle()
+    rectangle.speed(0)
+    rectangle.penup()
+    rectangle.goto(x,y)
+    rectangle.color(c)
+    rectangle.begin_fill()
+    rectangle.forward(31.25)
+    rectangle.right(90)
+    rectangle.forward(45)
+    rectangle.right(90)
+    rectangle.forward(62.5)
+    rectangle.right(90)
+    rectangle.forward(45)
+    rectangle.right(90)
+    rectangle.forward(31.25)
+    rectangle.end_fill()
+    rectangle.hideturtle()
+
+    square=turtle.Turtle()
+    square.speed(0)
+    square.penup()
+    square.goto(x,y)
+    square.pendown()
+    square.color(c)
+    square.begin_fill()
+    square.forward(50)
+    square.left(90)
+    square.forward(100)
+    square.left(90)
+    square.forward(100)
+    square.left(90)
+    square.forward(100)
+    square.left(90)
+    square.forward(50)
+    square.end_fill()
+    square.hideturtle()
+
+    circle=turtle.Turtle()
+    circle.speed(0)
+    circle.penup()
+    circle.goto(x,y-35)
+    circle.pendown()
+    circle.color(c)
+    circle.begin_fill()
+    r=25
+    circle.circle(r)
+    circle.end_fill()
+    circle.hideturtle()
+
+    triangle=turtle.Turtle()
+    triangle.speed(0)
+    triangle.penup()
+    triangle.goto(x,y)
+    triangle.color((20,18,16))
+    triangle.begin_fill()
+    triangle.pendown()
+    triangle.forward(12.5)
+    triangle.right(111)
+    triangle.forward(35)
+    triangle.right(138)
+    triangle.forward(35)
+    triangle.right(111)
+    triangle.forward(12.5)
+    triangle.end_fill()
+    triangle.hideturtle()
+
+    _circle=turtle.Turtle()
+    _circle.speed(0)
+    _circle.penup()
+    _circle.goto(x+50,y+100)
+    _circle.pendown()
+    _circle.pencolor(c)
+    _circle.fillcolor((250,200,215))
+    _circle.pensize(4)
+    _circle.begin_fill()
+    r=10
+    _circle.circle(r)
+    _circle.end_fill()
+    _circle.hideturtle()
+
+    __circle=turtle.Turtle()
+    __circle.speed(0)
+    __circle.penup()
+    __circle.goto(x-50,y+100)
+    __circle.pendown()
+    __circle.pencolor(c)
+    __circle.fillcolor((250,200,215))
+    __circle.pensize(4)
+    __circle.begin_fill()
+    r=10
+    __circle.circle(r)
+    __circle.end_fill()
+    __circle.hideturtle()
+
+    hexagon=turtle.Turtle()
+    hexagon.speed(0)
+    hexagon.penup()
+    hexagon.goto(x+17.5,y+50)
+    hexagon.pencolor("white")
+    hexagon.pensize(7)
+    hexagon.fillcolor("black")
+    hexagon.pendown()
+    hexagon.begin_fill()
+    for i in range (0,6):
+        hexagon.forward(6.5)
+        hexagon.right(60)
+    hexagon.end_fill()
+    hexagon.hideturtle()
+
+    _hexagon=turtle.Turtle()
+    _hexagon.speed(0)
+    _hexagon.penup()
+    _hexagon.goto(x-17.5,y+50)
+    _hexagon.pencolor((255,255,255))
+    _hexagon.pensize(7)
+    _hexagon.fillcolor((0,0,0))
+    _hexagon.pendown()
+    _hexagon.begin_fill()
+    _hexagon.right(180)
+    for i in range (0,6):
+        _hexagon.forward(6.5)
+        _hexagon.left(60)
+    _hexagon.end_fill()
+    _hexagon.hideturtle()
+    
+#I made 2 color palettes: earth colors and summer colors
+#This is the list of earth colors in rgb color code
+earth= [(73,56,41),(97,51,24),(133,87,35),(64,79,36),(131,146,159),(53,74,37),(158, 107, 55),(5, 105, 55),(217, 196, 119)]
+
+#This is the list of summer colors in rgb color code
+summer= [(21,178,211),(255,215,0),(255, 145, 36),(255,89,143),(255, 240, 143),(14, 110, 227),(255, 140, 245),(59, 255, 160)]
+
+#To add some complexity, my code first asks the user to choose between the 2 color themes. 
+theme= input("Which of the following color themes would you like to use? Type in 'a' for earth tones,or type 'b' for summer colors: ").lower()
+
+#If the user types "a" for earth colors:
+if "a" in theme:
+    
+    #Now I call the function, calling it 10 times and therfore drawing the bear 10 times
+    #This also allows me to randomize the x,y, and coor after every iteration
+    for i in range (0,10):
+    
+        #I define the variabe cc as a random integer from the range 0 to the amount of items in the list minus 1.
+        #This is because the first item in a list is [0], and therefore in a list of 3 items, for example, it would go [0]then [1] then [2], so item 3 woud be 3-1 or 2
+        cc= random.randint(0,len(earth)-1)
+    
+        #I define the variable 'color' as the random number corresponding to item of the list earth as established in the line above
+        color= (earth[cc])
+    
+        
+        #I am defining xx as a random integer to be the x coordinate
+        xx=random.randint(-600,600)
+        
+        #I am defining yy as a random integer to be the y coordinate
+        yy=random.randint(-400,400)
+        
+        #Here am I setting the backgrounmd color to a light green
+        scr = turtle.Screen()
+        scr.bgcolor(220, 255, 184)
+        
+        #I am physically calling the function with the random x coordinate, random y coordinate, and random color from the list of colors
+        draw (xx,yy,color)
+
+#If the user types "b" for summer colors:
+elif "b" in theme:
+    
+    #Now I call the function, calling it 10 times amd therfore drawing the bear ten times
+    #This also allows me to randomize the x,y, and coor after every iteration
+    for i in range (0,10):
+        
+        #I define the variabe cc as a random integer from the range 0 to the amount of items in the list minus 1.
+        #This is because the first item in a list is [0], and therefore in a list of 3 items, for example, it would go [0]then [1] then [2], so item 3 woud be 3-1 or 2
+        cc= random.randint(0,len(summer)-1)
+    
+        #I define the variable 'color' as the random number corresponding to item of the list earth as established in the line above
+        color= (summer[cc])
+    
+        
+        #I am defining xx as a random integer to be the x coordinate
+        xx=random.randint(-600,600)
+        
+        #I am defining yy as a random integer to be the y coordinate
+        yy=random.randint(-400,400)
+        
+        #Here am I setting the backgrounmd color to a bright cyan 
+        scr = turtle.Screen()
+        scr.bgcolor(120, 255, 239)
+        
+        #I am physically calling the function with the random x coordinate, random y coordinate, and random color from the list of colors
+        draw (xx,yy,color)
+
+
