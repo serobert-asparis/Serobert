@@ -1,0 +1,136 @@
+#class schedule interactive interface
+from guizero import App, Drawing, Text, Combo
+
+#Here I am setting the color of each class in rgb, sticking to a green-blue and nature theme, which are my favorite types of colors.
+#Foresty Green
+ablock = (102, 141, 60)
+#Light Brown
+bblock = (129, 108, 91)
+#Bright green
+cblock = (0, 255, 30)
+#Bright blue
+dblock = (60, 214, 230)
+#Nice Deep Blue
+eblock = (25, 105, 199)
+#Yellow
+fblock = (253, 208, 23)
+#Goldish-Brown
+gblock = (198, 142, 23)
+#Midtoned Turquise
+hblock = (0, 151, 172)
+
+#The function uses if and elif conditonal statements for each option of day
+def day_choice(selected_day):
+    drawing.clear()
+    if selected_day == "Day 1":
+        #result.value = "You Chose Day 1"
+        #The folowing lines 32-35 are used to draw four squares representing the four classes of that day, in the corresponding rgb colors from above
+        drawing.rectangle(110, 10, 290, 190, color=ablock)
+        drawing.rectangle(110, 195, 290, 375, color=bblock)
+        drawing.rectangle(110, 380, 290, 560, color=cblock)
+        drawing.rectangle(110, 565, 290, 745, color=dblock)
+        #The following lines 37-40 go in each corresponding box and write the block, class name,and time of each class.
+        drawing.text(120,30,"(A block)  IB Chem HL  8:55-10:20", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,220,"(B block) IB English Lang SL 10:40-12:00", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,390,"(C block)     IB Math AA HL 12:05-13:25", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,590,"(D block) IB Econ SL 14:15-15:18", color="white", font="Helvetica", size="18", max_width=180)
+        
+    elif selected_day == "Day 2":
+        #result.value = "You Chose Day 2"
+        #The folowing lines are used to draw four squares representing the four classes of that day, in the corresponding rgb colors from above
+        drawing.rectangle(110, 10, 290, 190, color=eblock)
+        drawing.rectangle(110, 195, 290, 375, color=fblock)
+        drawing.rectangle(110, 380, 290, 560, color=gblock)
+        drawing.rectangle(110, 565, 290, 745, color=hblock)
+        #The following lines go in each corresponding box and write the block, class name,and time of each class.
+        drawing.text(120,30,"(E block) IB Econ SL 8:55-10:20", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,220,"(F block) FREE 10:40-12:00", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,390,"(G block) IB Physics HL 12:50-14:10", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,590,"(H block) IB French SL 14:15-15:30", color="white", font="Helvetica", size="18", max_width=180)  
+    elif selected_day == "Day 3":
+        #result.value = "You Chose Day 3"
+        #The folowing lines are used to draw four squares representing the four classes of that day, in the corresponding rgb colors from above
+        drawing.rectangle(110, 10, 290, 190, color=bblock)
+        drawing.rectangle(110, 195, 290, 375, color=cblock)
+        drawing.rectangle(110, 380, 290, 560, color=dblock)
+        drawing.rectangle(110, 565, 290, 745, color=ablock)
+        #The following lines go in each corresponding box and write the block, class name,and time of each class.
+        drawing.text(120,30,"(B block) IB English Lang SL 8:55-10:20", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,220,"(C block)     IB Math AA HL 10:40-12:00", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,390,"(D block) IB Econ SL 12:05-13:25", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,590,"(A block)  IB Chem HL  14:15-15:30", color="white", font="Helvetica", size="18", max_width=180)
+
+    elif selected_day == "Day 4":
+        #result.value = "You Chose Day 4"
+        #The folowing lines are used to draw four squares representing the four classes of that day, in the corresponding rgb colors from above
+        drawing.rectangle(110, 10, 290, 190, color=fblock)
+        drawing.rectangle(110, 195, 290, 375, color=gblock)
+        drawing.rectangle(110, 380, 290, 560, color=hblock)
+        drawing.rectangle(110, 565, 290, 745, color=eblock)
+        #The following lines go in each corresponding box and write the block, class name,and time of each class.
+        drawing.text(120,30,"(F block) FREE 8:55-10:20", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,220,"(G block) IB Physics HL 10:40-12:00", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,390,"(H block) IB French SL 12:50-14:10", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,590,"(E block) IB Econ SL 14:15-15:30", color="white", font="Helvetica", size="18", max_width=180)
+    elif selected_day == "Day 5":
+        #result.value = "You Chose Day 5"
+        #The folowing lines are used to draw four squares representing the four classes of that day, in the corresponding rgb colors from above
+        drawing.rectangle(110, 10, 290, 190, color=cblock)
+        drawing.rectangle(110, 195, 290, 375, color=dblock)
+        drawing.rectangle(110, 380, 290, 560, color=ablock)
+        drawing.rectangle(110, 565, 290, 745, color=bblock)
+        #The following lines go in each corresponding box and write the block, class name,and time of each class.
+        drawing.text(120,30,"(C block)     IB Math AA HL 8:55-10:20", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,220,"(D block) IB Econ SL 10:40-12:00", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,390,"(A block)  IB Chem HL  12:05-13:25", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,590,"(B block) IB English Lang SL 14:15-15:30", color="white", font="Helvetica", size="18", max_width=180)
+
+    elif selected_day == "Day 6":
+        #result.value = "You Chose Day 6"
+        #The folowing lines are used to draw four squares representing the four classes of that day, in the corresponding rgb colors from above
+        drawing.rectangle(110, 10, 290, 190, color=gblock)
+        drawing.rectangle(110, 195, 290, 375, color=hblock)
+        drawing.rectangle(110, 380, 290, 560, color=eblock)
+        drawing.rectangle(110, 565, 290, 745, color=fblock)
+        #The following lines go in each corresponding box and write the block, class name,and time of each class.
+        drawing.text(120,30,"(G block) IB Physics HL 8:55-10:20", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,220,"(H block) IB French SL 10:40-12:00", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,390,"(E block) IB Econ SL 12:05-13:25", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,590,"(F block) FREE 14:15-15:30", color="white", font="Helvetica", size="18", max_width=180)
+    elif selected_day == "Day 7":
+        #result.value = "You Chose Day 7"
+        #The folowing lines are used to draw four squares representing the four classes of that day, in the corresponding rgb colors from above
+        drawing.rectangle(110, 10, 290, 190, color=dblock)
+        drawing.rectangle(110, 195, 290, 375, color=ablock)
+        drawing.rectangle(110, 380, 290, 560, color=bblock)
+        drawing.rectangle(110, 565, 290, 745, color=cblock)
+        #The following lines go in each corresponding box and write the block, class name,and time of each class.
+        drawing.text(120,30,"(D block) IB Econ SL 8:55-10:20", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,220,"(A block)  IB Chem HL  10:40-12:00", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,390,"(B block) IB English Lang SL 12:05-13:25", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,590,"(C block)     IB Math AA HL 14:15-15:30", color="white", font="Helvetica", size="18", max_width=180)
+
+    elif selected_day == "Day 8":
+        #result.value = "You Chose Day 8"
+        #The folowing lines are used to draw four squares representing the four classes of that day, in the corresponding rgb colors from above
+        drawing.rectangle(110, 10, 290, 190, color=hblock)
+        drawing.rectangle(110, 195, 290, 375, color=eblock)
+        drawing.rectangle(110, 380, 290, 560, color=fblock)
+        drawing.rectangle(110, 565, 290, 745, color=gblock)
+        #The following lines go in each corresponding box and write the block, class name,and time of each class.
+        drawing.text(120,30,"(H block) IB French SL 8:55-10:20", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,210,"(E block) IB Econ SL 10:40-12:00", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,390,"(F block) FREE 12:05-14:10", color="white", font="Helvetica", size="18", max_width=180)
+        drawing.text(120,590,"(G block) IB Physics HL 14:15-15:30", color="white", font="Helvetica", size="18", max_width=180)
+
+#I changed the title to include my name
+app = App(title="Seb's 8 Day Block Schedule", height=1200, width=400)
+#I changed the instructions at the top to include my name,and say that it is my schedule.
+#I also changed the text to white so it is easier to see against the dark grey background
+instructions = Text(app, text="Hello Seb, This is your Schedule. Please Select a Day!", color="white")
+#These are the options that are each included in the function abive,so when you click one the fucntion will play
+#I added a down arrow instead of a blank space
+combo = Combo(app, options=["   ↓", "Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7", "Day 8"], command=day_choice)
+drawing = Drawing(app)
+drawing.resize(400,1200)
+app.display()
