@@ -1,0 +1,80 @@
+#Calculating pi w/Monte Carlo Method
+
+#importing necessary modules
+import pygame
+import random
+import math
+
+#Title of the screen is set
+pygame.display.set_caption("Monte Carlo Method: Pi Estimation")
+
+#initialize pygame
+pygame.init()
+
+#Setting screen as 400 by 400 pixels
+screen = pygame.display.set_mode((400, 400))
+
+#Variable to be increased based on amount of points drawn inside the circle
+inside=0
+#Variable to be increased based on amount of points drawn outside the circle
+outside=0
+#Variable to be increased based on total amount of points drawn 
+total=0
+
+#make the screen white
+screen.fill((255,255,255))
+
+#Draw the original blue circle, which touches the edges of the square screen
+#This is made oitside the game loop so that it doesn't cover up the points drawn
+pygame.draw.circle(screen, "blue", [200, 200], 200)
+
+#Game loop
+#While True, as running=Truw
+running = True
+while running:
+    
+    #if user quits the program, running = False and therefore the while game loop ends.
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+            
+    #x is equal to a random x-value on the screen
+    x=random.randint(0,400)
+    #y is equal to a random y-value on the screen
+    y=random.randint(0,400)
+    #Drawing a point on the sceen at the randomized x and y values with a radius of 1
+    #It is therefore just a tony dot
+    pygame.draw.circle(screen, "black", [x,y],1)
+    #math.dist() checks for the distance between two points based on the pythagorean theorum
+    #checks the distance of the dot from the center 
+    d=math.dist((x,y), (200,200))
+    #if the distance is less than or equal to 200, the point is inside the circle
+    if d<= 200:
+        #the point is redrawn as green
+        pygame.draw.circle(screen, "green", [x,y],1)
+        #the variable to count the amount of dots inside the circle increases by 1
+        inside+=1
+        #the variable to count the amount of dots inside the circle increases by 1
+        total+=1
+        
+    #if the distance is greater than 400, the poin tis outside the circle
+    else:
+        #the point is redrawn as red
+        pygame.draw.circle(screen, "red", [x,y],1)
+        #the variable to count the amount of dots outside the circle increases by 1
+        outside+=1
+        #the variable to count the amount of dots inside the circle increases by 1
+        total+=1
+        
+    pi_estimate= 4*(inside/total)
+    #Displaying the estimate
+    print(str(total)+" dots.   π estimation: "+str(pi_estimate))
+    if total >=1500:
+        print("Estimation complete.")
+        running = False
+
+    #updates the display
+    pygame.display.flip()
+    
+#If the loop breaks, the program quits.
+pygame.quit()
